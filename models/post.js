@@ -5,7 +5,7 @@ var Comment = require('../models/comment.js');
 
 var Post = new Schema({
     id: ObjectId,
-    date: {type: Object, default: new Date()},
+    date: {type: Date, default: Date.now},
     post: String,
     location: {
     	city: String,
