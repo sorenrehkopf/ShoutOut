@@ -1,6 +1,6 @@
 var express = require('express');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/shoutout_dev');
+mongoose.connect('DATABASE_URL' || 'mongodb://localhost/shoutout_dev');
 var bodyParser = require('body-parser');
 var app = express();
 
@@ -8,4 +8,4 @@ var app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use('/api/posts', require('./controllers/posts.js'));
 
-app.listen(3000)
+app.listen(process.env.PORT || 3000);
