@@ -3,13 +3,13 @@ var router = express.Router();
 var Post = require('../models/post.js');
 var Comment = require('../models/comment.js');
 
-router.get('/',function(req,res){
+router.get('/',function(req,res,next){
 	Post.find({},function(err,posts){
 		res.send(posts)
 	})
 });
 
-router.post('/',function(req,res){
+router.post('/',function(req,res,next){
 	var post = new Post();
 	    post.post = req.body.post;
 	    // post.comments.push({comment:req.body.comment});
@@ -19,13 +19,13 @@ router.post('/',function(req,res){
 		});
 });
 
-router.get('/:id',function(req,res){
+router.get('/:id',function(req,res,next){
 	Post.findOne({_id:req.params.id},function(err,post){
 		res.send(post);
 	})
 });
 
-router.post('/:id',function(req,res){
+router.post('/:id',function(req,res,next){
 	Post.findOne({_id:req.params.id},function(err,post){
 			console.log(post);
 			post.comments.push({comment:req.body.comment});
