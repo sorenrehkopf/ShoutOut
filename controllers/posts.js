@@ -5,8 +5,7 @@ var Comment = require('../models/comment.js');
 
 router.get('/',function(req,res){
 	Post.find({},function(err,posts){
-		res.header("Access-Control-Allow-Origin: * ");
-		res.send(posts);
+		res.send(posts)
 	})
 });
 
