@@ -8,9 +8,8 @@ var Post = new Schema({
     date: {type: Date, default: Date.now},
     post: String,
     location: {
-    	city: String,
-    	zip:String,
-    	coords: String
+    	lon: Number,
+    	lat: Number,
     },
     comments: [Comment.schema]
 });
