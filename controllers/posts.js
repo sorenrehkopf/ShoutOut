@@ -20,8 +20,7 @@ router.get('/',function(req,res,next){
 router.post('/',function(req,res,next){
 	var post = new Post();
 	    post.post = req.body.post;
-	    post.location.lon:req.body.lon;
-	    post.location.lat:req.body.lat;
+	    post.location = req.body.location;
 	    // post.comments.push({comment:req.body.comment});
 		post.save(function(err){
 			console.log(post);
