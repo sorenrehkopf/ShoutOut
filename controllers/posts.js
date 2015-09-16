@@ -11,6 +11,7 @@ router.use(function(req, res, next) {
 });
 
 router.get('/',function(req,res,next){
+
 	Post.find({},function(err,posts){
 		res.send(posts)
 	})
@@ -19,6 +20,7 @@ router.get('/',function(req,res,next){
 router.post('/',function(req,res,next){
 	var post = new Post();
 	    post.post = req.body.post;
+	    post.location = req.body.location;
 	    // post.comments.push({comment:req.body.comment});
 		post.save(function(err){
 			console.log(post);
