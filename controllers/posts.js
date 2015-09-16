@@ -12,7 +12,7 @@ router.use(function(req, res, next) {
 
 router.get('/',function(req,res,next){
 
-	Post.find({},function(err,posts){
+	Post.find({location.lat:req.body.lat,location.lon:req.body.lon},function(err,posts){
 		res.send(posts)
 	})
 });
