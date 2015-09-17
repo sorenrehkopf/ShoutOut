@@ -10,9 +10,13 @@ router.use(function(req, res, next) {
   next();
 });
 
-router.get('/',function(req,res,next){
-
-	Post.find({},function(err,posts){
+router.get('/:lon/:lat',function(req,res,next){
+	var latMin = parseFloat(req.params.lat)-.0002;
+	var latMax = parseFloat(req.params.lat)+.0002;
+	var lonMin = parseFloat(req.params.lon)-.0002;
+	var lonMax = parseFloat(req.params.lon)+.0002;
+	console.log(latMin,lonMin)
+	Post.find({'location.lat':{$gte:latMin,$lte:latMax},'location.lon':{$gte:lonMin,$lte:lonMax}},function(err,posts){
 		res.send(posts)
 	})
 });
