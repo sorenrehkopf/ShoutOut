@@ -30,6 +30,7 @@ router.post('/',function(req,res,next){
 	var post = new Post();
 	    post.post = req.body.post;
 	    post.location = req.body.location;
+	    post.poster = req.body.poster;
 	    // post.comments.push({comment:req.body.comment});
 		post.save(function(err){
 			console.log(post);

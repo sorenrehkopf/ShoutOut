@@ -7,6 +7,7 @@ var Post = new Schema({
     id: ObjectId,
     date: {type: Date, default: Date.now},
     post: String,
+    poster: String,
     location: {
     	lon: Number,
     	lat: Number,
