@@ -12,14 +12,13 @@ router.use(function(req, res, next) {
   next();
 });
 
-router.get('/:lon/:lat',function(req,res,next){
-	var latMin = parseFloat(req.params.lat)-.002;
-	var latMax = parseFloat(req.params.lat)+.002;
-	var lonMin = parseFloat(req.params.lon)-.002;
-	var lonMax = parseFloat(req.params.lon)+.002;
-	console.log(latMin,lonMin)
+router.get('/:lon/:lat/:range/:off',function(req,res,next){
+	var latMin = parseFloat(req.params.lat)-parseFloat(req.params.range);
+	var latMax = parseFloat(req.params.lat)+parseFloat(req.params.range);
+	var lonMin = parseFloat(req.params.lon)-parseFloat(req.params.range);
+	var lonMax = parseFloat(req.params.lon)+parseFloat(req.params.range);
 	Post.find({'location.lat':{$gte:latMin,$lte:latMax},'location.lon':{$gte:lonMin,$lte:lonMax}}).
-	skip().
+	skip(req.params.off).
 	limit(10).
 	sort({date:-1}).
 	exec(function(err,posts){

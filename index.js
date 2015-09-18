@@ -19,8 +19,12 @@ var io = require('socket.io')(server);
 io.on('connection', function(socket){
 
 	socket.on('new post', function(data){
-			io.emit('new post');
+		console.log(data);
+			io.emit('new post',data);
 		});
+	socket.on('new comment', function(data){
+			io.emit('new comment')
+	})
 })
 
 //App config
