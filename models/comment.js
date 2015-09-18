@@ -5,7 +5,8 @@ var ObjectId = Schema.ObjectId;
 var Comment = new Schema({
     id: ObjectId,
     date: {type: Date, default: Date.now},
-    comment: String
+    comment: String,
+    poster: String
 });
 
 

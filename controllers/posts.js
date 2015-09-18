@@ -50,7 +50,7 @@ router.get('/:id',function(req,res,next){
 router.post('/:id',function(req,res,next){
 	Post.findOne({_id:req.params.id},function(err,post){
 			console.log(post);
-			post.comments.push({comment:req.body.comment});
+			post.comments.push({comment:req.body.comment,poster:req.body.poster});
 			post.save(function(err){
 				console.log(post);
 				res.send(post)
