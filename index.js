@@ -28,7 +28,12 @@ io.on('connection', function(socket){
 })
 
 //App config
+app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use('/api/posts', require('./controllers/posts.js'));
+
+app.get('/',function(req,res){
+	res.render('index.html');
+});
 
 server.listen(process.env.PORT || 3000);
