@@ -1,0 +1,14 @@
+body{
+	background: linear-gradient(to right, rgba(80,80,250,1),rgba(80,80,250,1),rgba(130,140,250,.4));
+}
+a{
+	text-decoration: none;
+	color:black;
+	text-transform: none;
+}
+.postcard{
+	background-color: rgba(250,250,250,1);
+}
+.rfrsh-btn{
+	background-color: white;
+}
