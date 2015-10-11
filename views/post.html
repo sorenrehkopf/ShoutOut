@@ -1,0 +1,24 @@
+  <md-card class="md-card">
+        <div>
+          <h3>{{post.poster ? post.poster : 'userwithoutaname'}}</h3>
+          <h2>{{post.post}}</h2>
+          <h3>{{post.date | longAgo}}</h3>
+        </div>
+    </md-card>
+    <h4>{{post.comments.length > 0 ? 'Add a comment!' : 'Be the first to comment!'}}</h4>
+    <form>  
+      <md-input-container>
+        <label>What's up?</label>
+            <textarea class="commPut" ng-keydown="buttonActivate()" ng-model="comment.comment"></textarea>
+      </md-input-container>
+          <md-button type="submit" ng-disabled="comment.comment.length <= 4" class="md-button md-raised" ng-click="newComment()">Comment</md-button>
+    </form>
+    <md-list class="posts-list">
+      <md-list-item class="md-3-line" ng-repeat="comment in post.comments">
+      <div class="md-list-item-text">
+        <h3>{{comment.poster ? comment.poster : 'userwithoutaname'}}</h3>
+        <h2>{{comment.comment}}</h2>
+        <p>{{comment.date | longAgo}}</p>
+      </div>
+      </md-list-item>
+    </md-list>

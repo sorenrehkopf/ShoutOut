@@ -1,0 +1,8 @@
+	<form id="new-shout-form">
+	<md-input-container flex>
+		<label>What's up?</label>
+        <textarea type="text" class="shoutPut" id="newShoutField" ng-keydown="buttonActivate()" ng-model="shout.post"></textarea>
+    </md-input-container>
+    <md-button type="submit" ng-disabled="shout.post.length < 5" class="md-button md-raised" ng-click="newShout()">Shout!</md-button>
+    </form>
+    

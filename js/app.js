@@ -1,12 +1,19 @@
-var shoutOut = angular.module('ShoutOut',['ngRoute','socket.service','ngSanitize','btford.socket-io']);
+var shoutOut = angular.module('ShoutOut',['ngRoute','socket.service','ngSanitize','btford.socket-io','ngMaterial']);
 
+shoutOut.config(function($mdThemingProvider){
+
+	$mdThemingProvider.theme('blue-grey')
+	// .backgroundPalette('blue-grey')
+    .primaryPalette('indigo')
+
+});
 shoutOut.run(['$rootScope','$http',function($rootScope,$http){
 
 	$rootScope.location = {
       lat:null,
       lon:null
     };
-    $rootScope.range = 0.0006;
+    $rootScope.range = 0.6;
     $rootScope.locSetTime = new Date();
     $rootScope.first;
     $rootScope.last;
@@ -26,8 +33,10 @@ shoutOut.run(['$rootScope','$http',function($rootScope,$http){
         $rootScope.location.lat = position.coords.latitude;
         $rootScope.location.lon = position.coords.longitude;
         $rootScope.locSetTime = new Date();
+        console.log(position);
       }, function(err) {
         // error
+        console.log(err);
       });
       
 
@@ -41,6 +50,18 @@ shoutOut.config(['$routeProvider','$locationProvider',function($routeProvider,$l
 	.when('/',{
 		templateUrl:'views/home.html',
 		controller:'HomeCtrl'
+	})
+	.when('/shout',{
+		templateUrl:'views/shout.html',
+		controller:'ShoutCtrl'
+	})
+	.when('/post/:postId',{
+		templateUrl:'views/post.html',
+		controller:'PostCtrl'
+	})
+	.when('/settings',{
+		templateUrl:'views/settings.html',
+		controller:'SettingsCtrl'
 	})
 
 }]);

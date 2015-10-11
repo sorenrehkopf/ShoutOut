@@ -1,0 +1,45 @@
+    <md-list>
+    <div class="item item-divider">Earshot.</div>
+	    <label class="item item-radio left" ng-click="setRange(0.0002)">
+	    <input type="radio" name="group">
+		    <div class="item-content">
+		      Room (about 30ft)
+		    </div>
+		    <i class="radio-icon ion-checkmark"></i>
+	  	</label>
+	  	<label class="item item-radio left" ng-click="setRange(0.0006)">
+	    <input type="radio" name="group">
+		    <div class="item-content">
+		      Building (about 100ft)
+		    </div>
+		    <i class="radio-icon ion-checkmark"></i>
+	  	</label>
+	  	<label class="item item-radio left" ng-click="setRange(0.0011)">
+	    <input type="radio" name="group">
+		    <div class="item-content">
+		      Block (about 200ft)
+		    </div>
+		    <i class="radio-icon ion-checkmark"></i>
+	  	</label>
+	  	<label class="item item-radio left" ng-click="setRange(0.04)">
+	    <input type="radio" name="group">
+		    <div class="item-content">
+		      Neighborhood (about 1mile)
+		    </div>
+		    <i class="radio-icon ion-checkmark"></i>
+	  	</label>
+	  	<label class="item item-radio left" ng-click="setRange(0.1)">
+	    <input type="radio" name="group">
+		    <div class="item-content">
+		      City (about... 6 miles?)
+		    </div>
+		    <i class="radio-icon ion-checkmark"></i>
+	  	</label>
+	<div class="item item-divider">Location Update.</div>
+	<button class="button button-block button-assertive" ng-click="resetLocation()">Update your location!</button>
+	<label class="item item-text-wrap left">
+		    <div class="item-content">
+		      Your location was last updated {{setTime | longAgo}}
+		    </div>
+	  	</label>
+    </md-list>

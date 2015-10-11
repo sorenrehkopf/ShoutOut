@@ -12,7 +12,7 @@ shoutOut.controller('HomeCtrl',['$scope','$rootScope','socket','$http',function(
         $rootScope.location.lon = position.coords.longitude;
         $rootScope.locSetTime = new Date();
       }, function(err) {
-        // error
+        console.log(err);
       });
   $scope.getPosts = function(){
     if(!$rootScope.location.lon || !$rootScope.location.lat) return;
@@ -23,7 +23,7 @@ shoutOut.controller('HomeCtrl',['$scope','$rootScope','socket','$http',function(
         '/'+$rootScope.range+
         '/'+$scope.offset
       }).then(function(data){
-          // console.log(data,$rootScope.range);
+          console.log(data,$rootScope.range);
           if($scope.offset > 0){
           for(i=0;i<data.data.length;i++){
           $scope.posts.push(data.data[i])
