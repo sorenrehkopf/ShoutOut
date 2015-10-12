@@ -17,7 +17,7 @@ shoutOut.controller('HomeCtrl',['$scope','$rootScope','socket','$http',function(
   $scope.getPosts = function(){
     if(!$rootScope.location.lon || !$rootScope.location.lat) return;
      return $http({
-        url:'http://shoutshout.herokuapp.com/api/posts/'+
+        url:'https://shoutshout.herokuapp.com/api/posts/'+
         $rootScope.location.lon+
         '/'+$rootScope.location.lat+
         '/'+$rootScope.rangeObj.range+

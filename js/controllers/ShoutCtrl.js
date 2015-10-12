@@ -15,7 +15,7 @@ shoutOut.controller('ShoutCtrl', function($scope, $http, $httpParamSerializerJQL
     }else{
     return $http({
       method: 'POST',
-      url:'http://shoutshout.herokuapp.com/api/posts',
+      url:'https://shoutshout.herokuapp.com/api/posts',
       data: $httpParamSerializerJQLike({post:$scope.shout.post,location:$scope.shout.location,poster:$scope.shout.poster}),
       headers: {'Content-Type': 'application/x-www-form-urlencoded'}
     }).then(function(data){

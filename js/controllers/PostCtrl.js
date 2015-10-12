@@ -2,7 +2,7 @@ shoutOut.controller('PostCtrl',function($scope,$http,$routeParams, $httpParamSer
   $scope.post = {}
   $scope.getPost = function(){
    return $http({
-      url:'http://shoutshout.herokuapp.com/api/posts/'+$routeParams.postId
+      url:'https://shoutshout.herokuapp.com/api/posts/'+$routeParams.postId
     }).then(function(data){
         $scope.post = data.data;
         // console.log($scope.post);
@@ -19,7 +19,7 @@ shoutOut.controller('PostCtrl',function($scope,$http,$routeParams, $httpParamSer
     console.log($scope.comment.comment);
     return $http({
       method: 'POST',
-      url:'http://shoutshout.herokuapp.com/api/posts/'+$routeParams.postId,
+      url:'https://shoutshout.herokuapp.com/api/posts/'+$routeParams.postId,
       data: $httpParamSerializerJQLike({comment:$scope.comment.comment,poster:$scope.comment.poster}),
       headers: {'Content-Type': 'application/x-www-form-urlencoded'}
     }).then(function(data){
@@ -29,7 +29,7 @@ shoutOut.controller('PostCtrl',function($scope,$http,$routeParams, $httpParamSer
   };
   socket.on('new comment', function(){
     return $http({
-        url:'http://shoutshout.herokuapp.com/api/posts/'+$routeParams.postId
+        url:'https://shoutshout.herokuapp.com/api/posts/'+$routeParams.postId
       }).then(function(data){
           $scope.post.comments = data.data.comments;
       });
