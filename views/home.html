@@ -1,7 +1,7 @@
+ <div class="center">
  <md-button ng-class="button" class="md-button md-raised rfrsh-btn" ng-click="setOff(0);getPosts()">{{newPosts > 0 ? newPosts+' new shouts near you!' : 'Refresh'}}</md-button>
   <h2 ng-show="posts.length === 0">Looks like no one's been shouting near here. Be the first!</h2>
-    <div class="posts-list">
-    <md-card class="" ng-repeat="post in posts track by $index">
+    <md-card class="md-hue-1" ng-repeat="post in posts track by $index">
     <a href="#!/post/{{post._id}}">
       <md-card-content>
         <div>
@@ -12,7 +12,7 @@
         </div>
       </md-card-content>
       </a>
-    </md-card>
-    </div>
+    </md-card>    
     <md-button class="md-raised md-button" ng-show="moar" ng-click="setOff(offset+10);getPosts()">Listen into the past farther!</md-button>
     <h4 ng-hide="moar">You have reached the end of time for this location!</h4>
+    </div>

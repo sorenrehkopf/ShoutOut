@@ -3,6 +3,17 @@ a{
 	color:black;
 	text-transform: none;
 }
-.posts-list{
+.center{
 	text-align: center;
+}
+#new-shout-form{
+	margin-top: 20vh;
+}
+#nav-open{
+	font-size: 5vh;
+	color: rgba(0,0,0,.8);
+	top:1vh;
+	left:5vh;
+	position:fixed;
+	z-index: 5;
 }

@@ -13,7 +13,7 @@
       </md-input-container>
           <md-button type="submit" ng-disabled="comment.comment.length <= 4" class="md-button md-raised" ng-click="newComment()">Comment</md-button>
     </form>
-    <md-list class="posts-list">
+    <md-list class="center">
       <md-list-item class="md-3-line" ng-repeat="comment in post.comments">
       <div class="md-list-item-text">
         <h3>{{comment.poster ? comment.poster : 'userwithoutaname'}}</h3>

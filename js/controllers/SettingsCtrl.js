@@ -1,8 +1,8 @@
 shoutOut.controller('SettingsCtrl', function($scope,$rootScope) {
   $scope.setTime = $rootScope.locSetTime;
-  $scope.setRange = function(range){
-    $rootScope.range = range
-  }
+  // $scope.setRange = function(range){
+  //   $rootScope.range = range
+  // };
   $scope.resetLocation = function(){
   navigator.geolocation
       .getCurrentPosition(

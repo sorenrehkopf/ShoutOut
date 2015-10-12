@@ -1,45 +1,18 @@
-    <md-list>
-    <div class="item item-divider">Earshot.</div>
-	    <label class="item item-radio left" ng-click="setRange(0.0002)">
-	    <input type="radio" name="group">
-		    <div class="item-content">
-		      Room (about 30ft)
-		    </div>
-		    <i class="radio-icon ion-checkmark"></i>
-	  	</label>
-	  	<label class="item item-radio left" ng-click="setRange(0.0006)">
-	    <input type="radio" name="group">
-		    <div class="item-content">
-		      Building (about 100ft)
-		    </div>
-		    <i class="radio-icon ion-checkmark"></i>
-	  	</label>
-	  	<label class="item item-radio left" ng-click="setRange(0.0011)">
-	    <input type="radio" name="group">
-		    <div class="item-content">
-		      Block (about 200ft)
-		    </div>
-		    <i class="radio-icon ion-checkmark"></i>
-	  	</label>
-	  	<label class="item item-radio left" ng-click="setRange(0.04)">
-	    <input type="radio" name="group">
-		    <div class="item-content">
-		      Neighborhood (about 1mile)
-		    </div>
-		    <i class="radio-icon ion-checkmark"></i>
-	  	</label>
-	  	<label class="item item-radio left" ng-click="setRange(0.1)">
-	    <input type="radio" name="group">
-		    <div class="item-content">
-		      City (about... 6 miles?)
-		    </div>
-		    <i class="radio-icon ion-checkmark"></i>
-	  	</label>
-	<div class="item item-divider">Location Update.</div>
-	<button class="button button-block button-assertive" ng-click="resetLocation()">Update your location!</button>
-	<label class="item item-text-wrap left">
-		    <div class="item-content">
+<div class="center">
+    <form>
+    <h1>Earshot.</h1>
+	    <md-radio-group ng-model="rangeObj.range">
+	      <md-radio-button value=0.0002>Room (about 30ft)</md-radio-button>
+	      <md-radio-button value=0.0006> Building (about 100ft) </md-radio-button>
+	      <md-radio-button value=0.0011> Block (about 200ft) </md-radio-button>
+	      <md-radio-button value=0.04> Neighborhood (about 1mile) </md-radio-button>
+	      <md-radio-button value=0.1> City (about 6miles) </md-radio-button>
+	      <md-radio-button value=360> Global (The whole world!) </md-radio-button>
+	    </md-radio-group>
+	 </form>
+	<h1>Location Update.</h1>
+	<md-button class="md-button md-raised md-accent" ng-click="resetLocation()">Update your location!</md-button>
+		    <h3>
 		      Your location was last updated {{setTime | longAgo}}
-		    </div>
-	  	</label>
-    </md-list>
+		    </h3>
+</div>

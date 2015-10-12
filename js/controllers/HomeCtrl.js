@@ -20,10 +20,10 @@ shoutOut.controller('HomeCtrl',['$scope','$rootScope','socket','$http',function(
         url:'http://shoutshout.herokuapp.com/api/posts/'+
         $rootScope.location.lon+
         '/'+$rootScope.location.lat+
-        '/'+$rootScope.range+
+        '/'+$rootScope.rangeObj.range+
         '/'+$scope.offset
       }).then(function(data){
-          console.log(data,$rootScope.range);
+          console.log(data,$rootScope.rangeObj.range);
           if($scope.offset > 0){
           for(i=0;i<data.data.length;i++){
           $scope.posts.push(data.data[i])
@@ -44,10 +44,10 @@ shoutOut.controller('HomeCtrl',['$scope','$rootScope','socket','$http',function(
     $scope.offset = off;
   };
   socket.on('new post',function(post){
-    if((post.location.lat>=$rootScope.location.lat - $rootScope.range) &&
-     (post.location.lat<=$rootScope.location.lat + $rootScope.range)&&
-     (post.location.lon>=$rootScope.location.lon - $rootScope.range)&&
-     (post.location.lon<=$rootScope.location.lon + $rootScope.range)){
+    if((post.location.lat>=$rootScope.location.lat - $rootScope.rangeObj.range) &&
+     (post.location.lat<=$rootScope.location.lat + $rootScope.rangeObj.range)&&
+     (post.location.lon>=$rootScope.location.lon - $rootScope.rangeObj.range)&&
+     (post.location.lon<=$rootScope.location.lon + $rootScope.rangeObj.range)){
     $scope.newPosts = $scope.newPosts +1
     $scope.button = 'button-calm'
     }

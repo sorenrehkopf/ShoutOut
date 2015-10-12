@@ -2,21 +2,30 @@ var shoutOut = angular.module('ShoutOut',['ngRoute','socket.service','ngSanitize
 
 shoutOut.config(function($mdThemingProvider){
 
-	$mdThemingProvider.theme('blue-grey')
-	// .backgroundPalette('blue-grey')
-    .primaryPalette('indigo')
+	$mdThemingProvider.theme('default')
+	.backgroundPalette('blue',{
+		'default':'300',
+		'hue-1':'100'
+	})
+    .primaryPalette('teal')
+    .accentPalette('red')
 
 });
-shoutOut.run(['$rootScope','$http',function($rootScope,$http){
+shoutOut.run(['$rootScope','$http','$mdSidenav',function($rootScope,$http,$mdSidenav){
 
 	$rootScope.location = {
       lat:null,
       lon:null
     };
-    $rootScope.range = 0.6;
+    $rootScope.rangeObj = {
+    	range:0.0006
+    };
     $rootScope.locSetTime = new Date();
     $rootScope.first;
     $rootScope.last;
+    $rootScope.openLeftMenu = function() {
+    $mdSidenav('left').toggle();
+  };
     $http({
       url:'http://randomword.setgetgo.com/get.php'
     }).then(function(data){

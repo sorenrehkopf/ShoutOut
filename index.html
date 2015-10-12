@@ -33,22 +33,26 @@
   
 </head>
 <body ng-app="ShoutOut">
-<div layout="column" layout-fill ng-cloak>
-<md-toolbar md-scroll-shrink ng-if="true" id="nav">
-    <div class="md-toolbar-tools">
+<section layout="row" layout-fill>
+<md-sidenav id="nav" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+    <md-toolbar class="center">
       <h1>
         <span>ShoutOut</span>
       </h1>
-      <md-button class="md-button md-raised" href="#!/">Listen</md-button>
+      </md-toolbar>
+      <md-button class="md-button md-hue-1 md-raised md-listen" href="#!/">Listen</md-button>
       <md-button class="md-button md-raised" href="#!/shout">Shout</md-button>
       <md-button class="md-button md-raised" href="#!/settings">Settings</md-button>
       <md-button class="md-button md-raised" href=""><i class="fa fa-github"></i> Github</md-button>
       <md-button class="md-button md-raised" href="">Download The Android App</md-button>
+  </md-sidenav>
+  
+    <div layout="column" layout-fill flex>
+      <md-content flex>
+      <span  id="nav-open" ng-hide="$mdMedia('gt-md')" ng-click="openLeftMenu()"><i class="fa fa-bars"></i></span>
+    	   <ng-view></ng-view>
+      </md-content>
     </div>
-  </md-toolbar>
-  <md-content flex>
-	   <ng-view></ng-view>
-  </md-content>
-</div>
+</section>
 </body>
 </html>
