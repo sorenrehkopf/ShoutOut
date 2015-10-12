@@ -27,12 +27,12 @@ shoutOut.run(['$rootScope','$http','$mdSidenav',function($rootScope,$http,$mdSid
     $mdSidenav('left').toggle();
   };
     $http({
-      url:'https://randomword.setgetgo.com/get.php'
+      url:'http://randomword.setgetgo.com/get.php'
     }).then(function(data){
       $rootScope.first = data.data;
     });
     $http({
-      url:'https://randomword.setgetgo.com/get.php'
+      url:'http://randomword.setgetgo.com/get.php'
     }).then(function(data){
       $rootScope.last = data.data;
     });
