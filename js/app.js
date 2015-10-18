@@ -1,17 +1,35 @@
 var shoutOut = angular.module('ShoutOut',['ngRoute','socket.service','ngSanitize','btford.socket-io','ngMaterial']);
 
 shoutOut.config(function($mdThemingProvider){
-
-	$mdThemingProvider.theme('default')
-	.backgroundPalette('blue',{
-		'default':'300',
-		'hue-1':'100'
+	$mdThemingProvider.definePalette('notASuckyPalette', {
+    '50': 'FFFFFF',
+    '100': '0066FF',
+    '200': '0066FF',
+    '300': '0066FF',
+    '400': '0066FF',
+    '500': '0066FF',
+    '600': '0066FF',
+    '700': '0066FF',
+    '800': '0066FF',
+    '900': '0066FF',
+    'A100': '0066FF',
+    'A200': '0066FF',
+    'A400': '0066FF',
+    'A700': '0066FF',
 	})
-    .primaryPalette('teal')
-    .accentPalette('red')
+	$mdThemingProvider.theme('default')
+    .primaryPalette('green')
+    .backgroundPalette('notASuckyPalette',{
+    	'hue-1':'50'
+    })
+    .warnPalette('blue')
 
 });
-shoutOut.run(['$rootScope','$http','$mdSidenav',function($rootScope,$http,$mdSidenav){
+shoutOut.run(['$rootScope','$http','$mdSidenav','$mdMedia',function($rootScope,$http,$mdSidenav,$mdMedia){
+
+	$rootScope.$watch(function(){return $mdMedia('gt-md');}, function(lrg){
+			$rootScope.lrg = lrg;
+	});
 
 	$rootScope.location = {
       lat:null,

@@ -33,23 +33,33 @@
   
 </head>
 <body ng-app="ShoutOut">
-<section layout="row" layout-fill>
-<md-sidenav id="nav" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-    <md-toolbar class="center">
-      <h1>
-        <span>ShoutOut</span>
-      </h1>
-      </md-toolbar>
-      <md-button class="md-button md-hue-1 md-raised md-listen" href="#!/">Listen</md-button>
+<md-toolbar ng-show="lrg" md-scroll-shrink>
+ <div class="md-toolbar-tools">
+      <h1>ShoutOut</h1>
+      <md-button class="md-button md-raised" href="#!/">Listen</md-button>
       <md-button class="md-button md-raised" href="#!/shout">Shout</md-button>
       <md-button class="md-button md-raised" href="#!/settings">Settings</md-button>
       <md-button class="md-button md-raised" href="https://github.com/sorenrehkopf/ShoutOut"><i class="fa fa-github"></i> Github</md-button>
       <md-button class="md-button md-raised" href="https://www.dropbox.com/s/mghgrvdp30yvuwe/android-debug.apk?dl=0">Download The Android App</md-button>
+ </div>
+</md-toolbar>
+<section layout="row" layout-fill>
+<md-sidenav id="nav" class="md-sidenav-left md-whiteframe-z2" ng-hide="lrg" md-component-id="left" md-is-locked-open="false" ng-click="openLeftMenu()">
+    <md-toolbar class="center">
+      <h1>
+        <span>ShoutOut  <i class="fa fa-arrow-left"></i></span>
+      </h1>
+      </md-toolbar>
+      <md-button class="md-button navBtn" href="#!/">Listen</md-button>
+      <md-button class="md-button navBtn" href="#!/shout">Shout</md-button>
+      <md-button class="md-button navBtn" href="#!/settings">Settings</md-button>
+      <md-button class="md-button navBtn" href="https://github.com/sorenrehkopf/ShoutOut" target="0"><i class="fa fa-github"></i> Github</md-button>
+      <md-button class="md-button navBtn" href="https://www.dropbox.com/s/mghgrvdp30yvuwe/android-debug.apk?dl=0">Download The Android App</md-button>
   </md-sidenav>
   
     <div layout="column" layout-fill flex>
       <md-content flex>
-      <span  id="nav-open" ng-hide="$mdMedia('gt-md')" ng-click="openLeftMenu()"><i class="fa fa-bars"></i></span>
+      <span  id="nav-open" ng-hide="lrg" ng-click="openLeftMenu()"><i class="fa fa-bars"></i></span>
     	   <ng-view></ng-view>
       </md-content>
     </div>

@@ -7,7 +7,7 @@ a{
 	text-align: center;
 }
 #new-shout-form{
-	margin-top: 20vh;
+	margin:20vh 5vw 0vh 5vw;
 }
 #nav-open{
 	font-size: 5vh;
@@ -16,4 +16,10 @@ a{
 	left:5vh;
 	position:fixed;
 	z-index: 5;
+}
+.navBtn{
+	display:block;
+}
+#settings-form{
+	margin:3vh 10vw;
 }
