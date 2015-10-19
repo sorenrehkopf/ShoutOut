@@ -36,7 +36,7 @@ shoutOut.run(['$rootScope','$http','$mdSidenav','$mdMedia',function($rootScope,$
       lon:null
     };
     $rootScope.rangeObj = {
-    	range:0.0006
+    	range:360
     };
     $rootScope.locSetTime = new Date();
     $rootScope.first;
